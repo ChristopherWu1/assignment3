@@ -1,13 +1,51 @@
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected = "purple"; 
+
+theGrid = document.getElementById("grid");
+//<tr></tr> row element
+//<td> /td> column element
+//add to lastChildelement
+//have to add background color of every tr to colorSelected
+
 
 //Add a row
-function addR() {
-    alert("Clicked Add Row")
+/*
+    have to add
+    <tr>
+        <td> </td>
+    </tr>
+*/
+function addR() {//have to add <td> </td> numCols times
+
+    //alert("Clicked Add Row")
+    let td = document.createElement("tr");
+    let tr = document.createElement("td");
+    tr.style.backgroundColor = colorSelected;
+    if(numCols === 0)
+    {
+        td.appendChild(tr);
+    }
+    else
+    {
+        for(let i = 0; i < numCols ; i++)
+        {
+            
+            td.appendChild(tr);
+        }
+    }
+    theGrid.appendChild(td);
+    numRows +=1;
 }
+
 //Add a column
-function addC() {
+/*
+    for every row,
+    have to add a 
+    <td> </td>
+    for each <tr> </tr>
+*/
+function addC() {//loop through rows, and add 1 col <td> </td>
     alert("Clicked Add Col")
 }
 
@@ -33,6 +71,7 @@ function selected(){
     console.log(colorSelected);
 }
 
+//compare the color to the default color we selected
 function fill(){
     alert("Clicked Fill All")
 }
