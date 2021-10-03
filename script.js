@@ -1,6 +1,6 @@
 let numRows = 0;
 let numCols = 0;
-let colorSelected = "purple"; 
+let colorSelected; 
 
 theGrid = document.getElementById("grid");
 //<tr></tr> row element
@@ -23,6 +23,7 @@ function addR() {//have to add <td> </td> numCols times
     //tr.className = 'aRow';
     let td = document.createElement("td");
     td.style.backgroundColor = colorSelected;
+    td.onclick = function() {changeColor(this)};
     if(numCols === 0)
     {
         tr.appendChild(td);
@@ -34,6 +35,7 @@ function addR() {//have to add <td> </td> numCols times
         {
             let td = document.createElement("td");
             td.style.backgroundColor = colorSelected;
+            td.onclick = function() {changeColor(this)};
             tr.appendChild(td);
         }
     }
@@ -60,6 +62,8 @@ function addC() {//loop through rows, and add 1 col <td> </td>
     {
         let td = document.createElement("td");
         td.style.backgroundColor = colorSelected;
+        td.onclick = function() {changeColor(this)};
+
         let tr = document.createElement("tr");
         tr.appendChild(td);
         theGrid.appendChild(tr);
@@ -76,6 +80,7 @@ function addC() {//loop through rows, and add 1 col <td> </td>
             
             let td = document.createElement("td");
             td.style.backgroundColor = colorSelected;
+            td.onclick = function() {changeColor(this)};
             rows[i].appendChild(td);
         }
     }
@@ -152,4 +157,10 @@ function clearAll(){
 
 function fillU(){
     alert("Clicked Fill All Uncolored")
+}
+
+function changeColor(theElement)
+{
+    theElement.style.backgroundColor = colorSelected;
+    
 }
