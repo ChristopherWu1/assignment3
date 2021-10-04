@@ -166,11 +166,19 @@ function clearAll(){
 
 //compare the color to the default color we selected
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    //alert("Clicked Fill All Uncolored")
+    let rows = document.querySelectorAll("tr td"); //gets all td(column) elements that follow a tr(row) element
+        //console.log(rows.length);
+        for(let i = 0; i < (numRows * numCols); i++) 
+        {
+                if(!rows[i].style.backgroundColor)//if backgroundColor doesn't exist
+                {
+                    rows[i].style.backgroundColor = colorSelected;//sets background color to colorSelected
+                }
+        }
 }
 
 function changeColor(theElement)
 {
     theElement.style.backgroundColor = colorSelected;
-    
 }
