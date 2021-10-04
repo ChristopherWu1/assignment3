@@ -127,7 +127,7 @@ function removeC() {
         }
         numCols-=1;
     }
-    if(numCols === 1)
+    if(numCols === 1)//if tableis 1x1, reset variables and empty table
     {
         numRows = 0;
         numCols = 0;
@@ -146,15 +146,25 @@ function selected(){
     console.log(colorSelected);
 }
 
-//compare the color to the default color we selected
+
 function fill(){
-    alert("Clicked Fill All")
+   // alert("Clicked Fill All")
+    let rows = document.querySelectorAll("tr td"); //gets all td(column) elements that follow a tr(row) element
+        //console.log(rows.length);
+        for(let i = 0; i < (numRows * numCols); i++) 
+        {
+                rows[i].style.backgroundColor = colorSelected;//sets background color to colorSelected
+        }
 }
 
 function clearAll(){
-    alert("Clicked Clear All")
+    //alert("Clicked Clear All")
+    theGrid.innerHTML = "";//clear everything in table
+    numCols = 0;//rest numCols
+    numRows = 0;
 }
 
+//compare the color to the default color we selected
 function fillU(){
     alert("Clicked Fill All Uncolored")
 }
