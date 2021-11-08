@@ -22,7 +22,7 @@ function addR() {//have to add <td> </td> numCols times
     let tr = document.createElement("tr");
     //tr.className = 'aRow';
     let td = document.createElement("td");
-    td.style.backgroundColor = colorSelected;
+    td.style.backgroundColor = 'white';
     td.onclick = function() {changeColor(this)};
     if(numCols === 0)
     {
@@ -34,7 +34,7 @@ function addR() {//have to add <td> </td> numCols times
         for(let i = 0; i < numCols ; i++)
         {
             let td = document.createElement("td");
-            td.style.backgroundColor = colorSelected;
+            td.style.backgroundColor = 'white';
             td.onclick = function() {changeColor(this)};
             tr.appendChild(td);
         }
@@ -61,7 +61,7 @@ function addC() {//loop through rows, and add 1 col <td> </td>
     if(numCols === 0 )
     {
         let td = document.createElement("td");
-        td.style.backgroundColor = colorSelected;
+        td.style.backgroundColor = 'white';
         td.onclick = function() {changeColor(this)};
 
         let tr = document.createElement("tr");
@@ -79,7 +79,7 @@ function addC() {//loop through rows, and add 1 col <td> </td>
         {
             
             let td = document.createElement("td");
-            td.style.backgroundColor = colorSelected;
+            td.style.backgroundColor = 'white';
             td.onclick = function() {changeColor(this)};
             rows[i].appendChild(td);
         }
@@ -158,10 +158,18 @@ function fill(){
 }
 
 function clearAll(){
+    /*
     //alert("Clicked Clear All")
     theGrid.innerHTML = "";//clear everything in table
     numCols = 0;//rest numCols
-    numRows = 0;
+    numRows = 0;*/
+    let rows = document.querySelectorAll("tr td"); //gets all td(column) elements that follow a tr(row) element
+        //console.log(rows.length);
+        for(let i = 0; i < (numRows * numCols); i++) 
+        {
+                rows[i].style.backgroundColor = 'white';//sets background color to white
+        }
+
 }
 
 //compare the color to the default color we selected
@@ -171,7 +179,7 @@ function fillU(){
         //console.log(rows.length);
         for(let i = 0; i < (numRows * numCols); i++) 
         {
-                if(!rows[i].style.backgroundColor)//if backgroundColor doesn't exist
+                if(rows[i].style.backgroundColor == 'white')//if backgroundColor is white or if it doesn't exist
                 {
                     rows[i].style.backgroundColor = colorSelected;//sets background color to colorSelected
                 }
